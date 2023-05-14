@@ -1,6 +1,7 @@
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCounterValue } from './store/sliceCounter';
+import { Button, Container, Text } from '@chakra-ui/react';
 
 function App() {
   const dispatch = useDispatch();
@@ -8,11 +9,13 @@ function App() {
 
   const activeTree = useSelector(state => state.activeTree);
   return (
-    <div className="App" style={{display:'flex', alignItems:'center'}}>
-      <div className='button' onClick={() => dispatch(changeCounterValue({amount: 1}))}>+</div>
-      {value}
-      <div className='button' onClick={() => dispatch(changeCounterValue({amount: -1}))}>-</div>
-    </div>
+    <Container>
+      <div className="App" style={{display:'flex', alignItems:'center'}}>
+        <Button variant="primary" onClick={() => dispatch(changeCounterValue({amount: 1}))}>+</Button>
+        <Text fontSize="2rem" width='2rem' textAlign={'center'}>{value}</Text>
+        <Button variant="primary" onClick={() => dispatch(changeCounterValue({amount: -1}))}>-</Button>
+      </div>
+    </Container>
   );
 }
 
