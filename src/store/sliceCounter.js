@@ -5,8 +5,9 @@ const sliceCounter = createSlice({
     initialState: 0,
     reducers: {
         changeCounterValue: (state, action) => {
+            console.log(action);
             const { amount } = action.payload;
-            state += amount;
+            return state += amount;
         }
     }
 });
