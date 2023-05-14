@@ -13,7 +13,7 @@ function App() {
         <Heading>Counter</Heading>
         <Box display='flex' justifyContent={'center'} alignItems='center'>
           <Button variant="primary" onClick={() => dispatch(changeCounterValue({amount: 1}))}>+</Button>
-          <Text fontSize="2rem" width='2rem' textAlign={'center'}>{value}</Text>
+          <Text fontSize="2rem" width='3rem' textAlign={'center'}>{value}</Text>
           <Button variant="primary" onClick={() => dispatch(changeCounterValue({amount: -1}))}>-</Button>
         </Box>
     </Container>

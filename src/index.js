@@ -17,6 +17,12 @@ import { theme as proTheme } from '@chakra-ui/pro-theme'
 import { extendTheme, theme as baseTheme, ColorModeScript } from '@chakra-ui/react'
 import '@fontsource/inter/variable.css'
 
+/*
+ * socket io
+ */
+import { io } from 'socket.io-client';
+import * as socket from './socket';
+
 export const theme = extendTheme(
   {
     colors: { ...baseTheme.colors, brand: baseTheme.colors.blue },
@@ -25,6 +31,16 @@ export const theme = extendTheme(
   },
   proTheme,
 )
+
+socket.setupTheSocket(io, `https://node.pymnts.com:6400`, store);
+
+// const intervalTimerId = setInterval(() => {
+//   if (typeof io === 'undefined') return console.log('checking');
+//   clearInterval(intervalTimerId);
+//   setupTheSocket();
+// }, 1000)
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
